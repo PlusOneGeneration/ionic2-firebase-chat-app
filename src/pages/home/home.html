@@ -1,14 +1,78 @@
-<ion-header>
+<ion-header color="primary">
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="people"></ion-icon>
+    </button>
+
+    <ion-title text-center>
+      Chat
     </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <ion-item *ngFor="let item of (messages | async )">
+      <div style="float: left;">
+        <small class="text-muted">{{dateConvert(item.createdAt)}}</small>
+        <small>{{(getUserData(item.author) | async)?.name}}<span class="text-warning" *ngIf="isYou(item.author)"> (you)</span>
+        </small>
+      </div>
+      <div style="float: right;">
+        <ion-icon name="create" (click)="editMessage(item.$key)" *ngIf="isYou(item.author)"></ion-icon>
+        <ion-icon name="trash" (click)="deleteMessage(item.$key)" *ngIf="isYou(item.author)"></ion-icon>
+      </div>
+
+
+      <p style="clear: both;">{{item.text}}</p>
+    </ion-item>
+  </ion-list>
+  <ion-nav #mycontent></ion-nav>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <form (submit)="send()">
+      <ion-row>
+        <ion-col col-9>
+          <ion-input placeholder="Text Input"
+                     name="message"
+                     [(ngModel)]="message.text"></ion-input>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button type="submit">Send</button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-toolbar>
+</ion-footer>
+
+<!--online users-->
+<ion-menu [content]="mycontent">
+  <ion-content>
+    <ion-list>
+      <ion-list-header>Online users</ion-list-header>
+      <ion-item *ngFor="let usr of users | async">
+        <small>
+          <ion-icon name="male" *ngIf="usr.gender === 'male'"></ion-icon>
+          <ion-icon name="female" *ngIf="usr.gender === 'female'"></ion-icon>
+          {{usr.name}}<span class="text-warning" *ngIf="usr && isYou(usr.uid)"> (you)</span>
+        </small>
+        <button (click)="banUser(usr)"
+                *ngIf="usr && !(isBannedUser(usr.uid) | async)"
+                class="btn btn-warning btn-xs pull-right">Ban
+        </button>
+        <button (click)="unBanUser(usr)"
+                *ngIf="usr && isBannedUser(usr.uid) | async"
+                class="btn btn-success btn-xs pull-right">Un-ban
+        </button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

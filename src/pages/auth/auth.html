@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Auth
+    </ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="state" color="primary">
+      <ion-segment-button value="login">
+        Login
+      </ion-segment-button>
+      <ion-segment-button value="signup">
+        Sign up
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="state === 'login'">
+    <ion-item>
+      <ion-label color="primary" stacked>Email</ion-label>
+      <ion-input placeholder="Email" [(ngModel)]="form.email" type="email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Password</ion-label>
+      <ion-input placeholder="Password" [(ngModel)]="form.password" type="password" name="password"></ion-input>
+    </ion-item>
+
+    <div text-center>
+      <br>
+      <button ion-button round (click)="login()">Login</button>
+    </div>
+  </ion-list>
+
+  <ion-list *ngIf="state === 'signup'">
+    <ion-item>
+      <ion-label color="primary" stacked>Name</ion-label>
+      <ion-input placeholder="Name" [(ngModel)]="form.name" name="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Email</ion-label>
+      <ion-input placeholder="Email" [(ngModel)]="form.email" type="email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" stacked>Password</ion-label>
+      <ion-input placeholder="Password" [(ngModel)]="form.password" type="password" name="password"></ion-input>
+    </ion-item>
+
+    <ion-list radio-group [(ngModel)]="form.gender">
+      <!--<ion-list-header no-lines>-->
+        <!--Gender-->
+      <!--</ion-list-header>-->
+      <ion-item>
+        <ion-label color="primary">Gender</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Male</ion-label>
+        <ion-radio value="male" item-content></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Female</ion-label>
+        <ion-radio value="female" item-content></ion-radio>
+      </ion-item>
+    </ion-list>
+
+    <div text-center>
+      <button ion-button round (click)="signup()">Signup</button>
+    </div>
+  </ion-list>
+
+</ion-content>

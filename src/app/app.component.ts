@@ -5,7 +5,6 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {HomePage} from '../pages/home/home';
 import {FirebaseService} from "../firebase/firebase.service";
-// import {LoginPage} from "../pages/login/login";
 import {AuthPage} from "../pages/auth/auth";
 
 @Component({

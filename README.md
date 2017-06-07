@@ -1,26 +1,33 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# Ionic 2 Firebase-chat-app
 
-## How to use this template
+It's a simple chat application based on Firebase Auth and Firebase DB components and wrapped with Ionic 2
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/driftyco/ionic2-app-base).
+## Auth part
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/driftyco/ionic2-app-base).
+![Auth](https://github.com/PlusOneGeneration/ionic2-firebase-chat-app/blob/master/src/assets/screenshot_ionic2_001.png)
 
-### With the Ionic CLI:
+## Main (chat) part
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+![Chat](https://github.com/PlusOneGeneration/ionic2-firebase-chat-app/blob/master/src/assets/screenshot_ionic2_002.png)
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
-```
+## Online users in sidebar
 
-Then, to run it, cd into `myBlank` and run:
+![Sidebar](https://github.com/PlusOneGeneration/ionic2-firebase-chat-app/blob/master/src/assets/1screenshot_ionic2_003.png)
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
+## Popover with logout functionality
 
-Substitute ios for android if not on a Mac.
+![Logout](https://github.com/PlusOneGeneration/ionic2-firebase-chat-app/blob/master/src/assets/1screenshot_ionic2_004.png)
 
+## Install
+
+* Clone: `git@github.com:PlusOneGeneration/ionic2-firebase-chat-app.git` or `https://github.com/PlusOneGeneration/ionic2-firebase-chat-app.git`
+* Inside project you just need to run `npm i` to install all packages
+* To use your Firebase just put credentials to`src/environments/environment.ts` 
+* Last step run: `ionic serve` or `ionic serve -l` it will open default browser with application or go to [`http://localhost:8100/`](http://localhost:8100/) in your browser
+
+## Your own Firebase Credentials
+
+* Go to firebase console [`https://console.firebase.google.com/`](https://console.firebase.google.com/) (login or signup)
+* Create project
+* In Overview -> `Add Firebase to your Web-app` -> Copy credentials
+* Put credentials of your Firebase to`src/environments/environment.ts`

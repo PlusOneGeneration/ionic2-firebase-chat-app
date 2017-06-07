@@ -16,7 +16,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding main>
   <ion-list>
     <ion-item *ngFor="let item of (messages | async )">
       <div style="float: left;">
@@ -33,28 +33,26 @@
       <p style="clear: both;">{{item.text}}</p>
     </ion-item>
   </ion-list>
-  <ion-nav #mycontent></ion-nav>
+
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-    <form (submit)="send()">
-      <ion-row>
-        <ion-col col-9>
-          <ion-input placeholder="Text Input"
-                     name="message"
-                     [(ngModel)]="message.text"></ion-input>
-        </ion-col>
-        <ion-col text-right>
-          <button ion-button type="submit">Send</button>
-        </ion-col>
-      </ion-row>
+    <form (submit)="send()" inset>
+      <ion-item item-left>
+        <ion-input placeholder="Text Input"
+                   name="message"
+                   [(ngModel)]="message.text"></ion-input>
+        <button ion-button
+                item-right
+                type="submit">Send</button>
+      </ion-item>
     </form>
   </ion-toolbar>
 </ion-footer>
 
 <!--online users-->
-<ion-menu [content]="mycontent">
+<ion-menu [content]="mycontent" main style="z-index: 10">
   <ion-content>
     <ion-list>
       <ion-list-header>Online users</ion-list-header>
@@ -76,3 +74,5 @@
     </ion-list>
   </ion-content>
 </ion-menu>
+
+<ion-nav #mycontent></ion-nav>

@@ -4,19 +4,19 @@ It's a simple chat application based on Firebase Auth and Firebase DB components
 
 ## Auth part
 
-![Auth](https://github.com/PlusOneGeneration/ionic2-firebase-chat-app/blob/master/src/assets/screenshot_ionic2_001.png)
+![Auth](https://github.com/PlusOneGeneration/ionic2-firebase-chat-app/blob/master/src/assets/screenshots/screenshot_ionic2_001.png)
 
 ## Main (chat) part
 
-![Chat](https://github.com/PlusOneGeneration/ionic2-firebase-chat-app/blob/master/src/assets/screenshot_ionic2_002.png)
+![Chat](https://github.com/PlusOneGeneration/ionic2-firebase-chat-app/blob/master/src/assets/screenshots/screenshot_ionic2_002.png)
 
 ## Online users in sidebar
 
-![Sidebar](https://github.com/PlusOneGeneration/ionic2-firebase-chat-app/blob/master/src/assets/1screenshot_ionic2_003.png)
+![Sidebar](https://github.com/PlusOneGeneration/ionic2-firebase-chat-app/blob/master/src/assets/screenshots/screenshot_ionic2_003.png)
 
 ## Popover with logout functionality
 
-![Logout](https://github.com/PlusOneGeneration/ionic2-firebase-chat-app/blob/master/src/assets/1screenshot_ionic2_004.png)
+![Logout](https://github.com/PlusOneGeneration/ionic2-firebase-chat-app/blob/master/src/assets/screenshots/screenshot_ionic2_004.png)
 
 ## Install
 
